@@ -1,0 +1,85 @@
+# LiteBack 插件配置文件
+# 玩家死亡回溯插件配置文件
+
+# 基础设置
+settings:
+  # 死亡记录保留天数
+  death-record-days: 7
+  # 离线玩家数据清理时间(分钟)
+  offline-cleanup-minutes: 60
+  # 是否启用安全传送检查
+  safe-teleport-check: true
+  # === 存储优化设置 ===
+  # 文件大小阈值（字节，默认5MB）
+  file-size-threshold: 5242880
+  # 缓冲保存间隔（毫秒，默认2秒）
+  buffer-save-interval: 2000
+  # 强制保存阈值（毫秒，默认30秒）
+  force-save-threshold: 30000
+  # 是否启用文件大小优化
+  enable-file-optimization: true
+  # 自动检查间隔（分钟，默认10分钟）
+  auto-check-interval: 10
+  # 压缩后保留备份文件天数
+  backup-retention-days: 3
+
+# 冷却时间设置
+cooldown:
+  # 是否启用冷却时间
+  enabled: true
+  # 冷却时间(秒)
+  duration: 30
+  # 管理员无冷却时间
+  admin-unlimited: true
+
+# 消息设置
+messages:
+  # 死亡记录成功消息
+  death-recorded: "&a✅ 死亡点已记录成功 &7| &e坐标: &f{x}, {y}, {z} &7| &b{dim}&a 维度"
+  # 传送成功消息
+  teleport-success: "&a😊 哟？&b又回来了呀！&7✨"
+  # 无死亡记录消息
+  no-death-record: "&6⚡ 老逼登！&e怎么还活着！&c快死吧！&7💀"
+  # 冷却时间消息
+  cooldown-message: "&c⏰ 冷却中 &7| &e剩余时间: &f{time} &7秒"
+  # 传送目标不安全消息
+  unsafe-target: "&c⚠️ 目标位置不安全 &7| &7请联系管理员检查地形"
+  # 权限不足消息
+  no-permission: "&c🚫 权限不足 &7| &7你需要 &e'liteback.back' &7权限"
+  # 正在使用消息
+  already-using: "&c🔄 正在使用中 &7| &7请等待当前操作完成"
+  # 帮助消息
+  help-message: |
+    &8╔═══════════════════════════════╗
+    &8║ &a⚡ &eLiteBack 死亡回溯插件 &a⚡ &8    ║
+    &8╠═══════════════════════════════╣
+    &8║ &7命令: &e/back &7- 返回你的死亡点    ║
+    &8║ &7管理: &e/back reload &7- 重载配置    ║
+    &8╚═══════════════════════════════╝
+  # 管理员重载成功消息
+  reload-success: "&a✅ 配置文件已重载！"
+  # 管理员重载失败消息
+  reload-failed: "&c✗ 重载配置失败: {error}"
+  # 管理员清理成功消息
+  cleanup-success: "&a✅ 数据清理完成！"
+  # 世界不存在消息
+  world-not-exists: "&c✗ 目标世界不存在，无法传送！"
+  # 传送完成消息
+  teleport-complete: "&a✅ 传送成功！"
+  # 传送失败消息
+  teleport-failed: "&c✗ 传送失败: {error}"
+  # 只有玩家才能使用命令的消息
+  only-player: "&c✗ 只有玩家才能使用此命令！"
+# 安全传送检查
+safety-check:
+  # 禁用传送的方块类型
+  disabled-blocks:
+    - LAVA
+    - MAGMA
+    - CACTUS
+    - FIRE
+    - SOUL_FIRE
+    - WITHER_ROSE
+  # 需要检查的高度范围
+  min-y: -64
+  max-y: 320

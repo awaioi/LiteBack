@@ -1,0 +1,35 @@
+name: LiteBack
+version: 1.0.7
+main: org.awaioi.liteback.LiteBack
+api-version: '1.21'
+author: Awaioi
+description: 玩家死亡回溯插件，允许玩家返回死亡点
+
+commands:
+  back:
+    description: 返回你的死亡点
+    permission: liteback.back
+    permission-message: 你没有权限使用此命令！
+    usage: /back
+    aliases: [死亡点, 回溯]
+    permission-op: false
+    permission-default: true
+
+permissions:
+  liteback.back:
+    description: 允许使用/back命令返回死亡点
+    default: true
+    children:
+      liteback.admin:
+        description: 管理员权限
+        default: op
+        children:
+          liteback.back.others:
+            description: 允许为其他玩家返回死亡点
+            default: op
+          liteback.back.unlimited:
+            description: 无冷却时间限制
+            default: op
+          liteback.admin.cleanup:
+            description: 管理员清理权限
+            default: op
